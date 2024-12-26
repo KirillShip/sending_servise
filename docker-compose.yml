@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Сервис для FastAPI
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+
+  # Сервис для воркеров
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    restart: always
+
+  # Сервис для RabbitMQ
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"  # Порт для очередей RabbitMQ
+      - "15672:15672"  # Порт для управления через веб-интерфейс
+    restart: always

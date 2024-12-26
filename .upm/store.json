@@ -1,0 +1,1 @@
+{"version":2,"languages":{"python3-pip":{"specfileHash":"809f235cc54d1c40a801fb07e74ca981","guessedImports":["pika","pydantic","uvicorn","fastapi"],"guessedImportsHash":"55239aa2c12f1c5bd56231ab44d9c417"},"python3-uv":{"specfileHash":"0b392cbaf8d0250a95b235b9a6e5c049","lockfileHash":"582c5690b9f4a59c8ddc51ea9a5b5b88"}}}
